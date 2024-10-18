@@ -7,7 +7,13 @@ const start = async () => {
 	video.setAttribute("loop","");
 
 	video.oncanplay = () => {
-		video.play();
+		anchor.onTargetFound = () => {
+			video.play();
+		}
+		anchor.onTargetLost = () => {
+			video.pause();
+		}
+		
 	}
 	const mindarThree = new window.MINDAR.IMAGE.MindARThree({
 	container: document.body, 
